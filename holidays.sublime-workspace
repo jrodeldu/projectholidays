@@ -27,7 +27,7 @@
 			"file": "application/controllers/admin/calendario.php",
 			"settings":
 			{
-				"buffer_size": 3709,
+				"buffer_size": 3711,
 				"line_ending": "Unix"
 			}
 		},
@@ -83,7 +83,7 @@
 			"file": "application/config/config.php",
 			"settings":
 			{
-				"buffer_size": 13311,
+				"buffer_size": 13308,
 				"line_ending": "Windows"
 			}
 		},
@@ -260,6 +260,7 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -267,15 +268,15 @@
 					"file": "application/controllers/admin/calendario.php",
 					"settings":
 					{
-						"buffer_size": 3709,
+						"buffer_size": 3711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1809,
-								1809
+								1891,
+								1891
 							]
 						],
 						"settings":
@@ -1073,15 +1074,15 @@
 					"file": "application/config/config.php",
 					"settings":
 					{
-						"buffer_size": 13311,
+						"buffer_size": 13308,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10493,
-								10493
+								0,
+								0
 							]
 						],
 						"settings":
