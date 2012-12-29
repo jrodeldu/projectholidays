@@ -1,0 +1,108 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/*
+| -------------------------------------------------------------------------
+| URI ROUTING
+| -------------------------------------------------------------------------
+| This file lets you re-map URI requests to specific controller functions.
+|
+| Typically there is a one-to-one relationship between a URL string
+| and its corresponding controller class/method. The segments in a
+| URL normally follow this pattern:
+|
+|	example.com/class/method/id/
+|
+| In some instances, however, you may want to remap this relationship
+| so that a different class/function is called than the one
+| corresponding to the URL.
+|
+| Please see the user guide for complete details:
+|
+|	http://codeigniter.com/user_guide/general/routing.html
+|
+| -------------------------------------------------------------------------
+| RESERVED ROUTES
+| -------------------------------------------------------------------------
+|
+| There area two reserved routes:
+|
+|	$route['default_controller'] = 'welcome';
+|
+| This route indicates which controller class should be loaded if the
+| URI contains no data. In the above example, the "welcome" class
+| would be loaded.
+|
+|	$route['404_override'] = 'errors/page_missing';
+|
+| This route will tell the Router what URI segments to use if those provided
+| in the URL cannot be matched to a valid route.
+|
+*/
+//Direcci�n para web NO operativa
+//$route['default_controller'] = "welcome";
+//Direcci�n para web SI operativa
+$route['default_controller'] = "inicio";
+
+$route['404_override'] = 'error';
+
+// ADMIN
+$route['admin'] 	   = 'access';
+$route['admin/logout'] = 'access/logout';
+$route['admin/dashboard'] = 'admin/dashboard';
+$route['admin/(.+)$']  = "admin/$1";
+// FIN ADMIN
+
+$route['cursos/busqueda-cursos/(:any)'] = 'inicio/busquedacursos/$1';
+$route['cursos/busqueda-cursos/(:any)/(:num)'] = 'inicio/busquedacursos/$1/$2';
+$route['cursos/busqueda-cursos/(.+)$'] = 'inicio';
+
+$route['cursos/busqueda/(:any)/(:any)'] = 'inicio/busquedacursos2params/$1/$2';
+$route['cursos/busqueda/(:any)/(:any)/(:num)'] = 'inicio/busquedacursos2params/$1/$2/$3';
+
+// Functiona bien
+$route['cursos/busqueda-nombre-isla-modalidad'] = 'inicio/getCursosNombreIslaModalidad';
+$route['cursos/busqueda-nombre-isla-modalidad/(:num)'] = 'inicio/getCursosNombreIslaModalidad/$1';
+
+$route['calendario'] = "calendariofancy/index";
+$route['actualidad'] = "actualidad/index";
+$route['actualidad/n/(:any)'] = "actualidad/verNoticia/$1";
+$route['noticias/n/(:any)'] = "actualidad/verNoticia/$1";
+
+// Funciona bien
+//$route['cursos/buscar-cursos'] = "inicio/buscarCursos";
+//$route['cursos/buscar-cursos/(.+)$'] = "inicio/buscarCursos";
+//$route['cursos/busqueda-completa'] = "inicio/getAllCursos";
+//$route['cursos/busqueda-completa/(:num)'] = "inicio/getAllCursos/$1";
+$route['cursos/buscador'] = "inicio/buscarCursos";
+$route['cursos/buscador/(:num)'] = "inicio/getAllCursos/$1";
+$route['cursos/info/(:any)'] = "inicio/buscarDetalleCurso/$1";
+$route['cursos/buscador/(.+)$'] = "inicio/buscarCursos";
+$route['cursos/(.+)$']  = "inicio/buscarCursos";
+
+$route['newsletter'] = "boletin/index";
+$route['boletin/ver-newsletter'] = "boletin/ver_newsletter";
+$route['baja-newsletter'] = "boletin/bajaView";
+//$route['newsletterBaja'] = "boletin/bajaView";
+$route['contacto/centros/info(:any)'] = "contacto/verCentro/$1";
+
+// centros
+$route['centros/buscar-centros'] = "centros/buscarCentros";
+$route['centros/buscar-centros/(.+)$'] = "centros/buscarCentros";
+
+$route['centros/n/(:any)'] = "centros/verCentro/$1";
+
+$route['centros/busqueda-completa'] = "centros/getAllCentros";
+$route['centros/busqueda-completa/(:num)'] = "centros/getAllCentros/$1";
+
+$route['centros/busqueda-centros/(:any)'] = 'centros/busquedaCentros/$1';
+$route['centros/busqueda-centros/(:any)/(:num)'] = 'centros/busquedaCentros/$1/$2';
+$route['centros/busqueda-centros/(.+)$'] = 'centros';
+
+$route['centros/busqueda/(:any)/(:any)'] = 'centros/busquedaCentrosIsla/$1/$2';
+$route['centros/busqueda/(:any)/(:any)/(:num)'] = 'centros/busquedaCentrosIsla/$1/$2/$3';
+
+// galeria
+$route['galeria'] = "galeria/index";
+$route['galerias/(:any)/(:any)'] = "galeria/ver_galeria/$1/$2";
+
+/* End of file routes.php */
+/* Location: ./application/config/routes.php */
