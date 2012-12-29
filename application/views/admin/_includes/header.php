@@ -90,11 +90,11 @@
   <!-- Script base de pruebas -->
   <script language="javascript" type="text/javascript">
 
+    base_url='<?php echo base_url(); ?>index.php/';
+
     $(document).ready(function(){
       $(".alert").alert();
     });
-
-    base_url='http://localhost/www.vacaciones.com/index.php/';
 
     tinyMCE.init({
             // General options

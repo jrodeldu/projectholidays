@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/projectholidays/';
+$config['base_url']	= 'http://projectholidays/'; // Virtual host creado en local
 
 /*
 |--------------------------------------------------------------------------
