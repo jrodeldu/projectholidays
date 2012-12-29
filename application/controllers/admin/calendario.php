@@ -63,7 +63,7 @@ class Calendario extends MY_Controller {
 
 	public function edit_status(){
 		if ($this->input->post()) {
-			echo 'eeeeeeeeeeeepa!';
+			echo 'eeeeeeeeeeeeeepa!';
 		}else{
 			echo 'NOPE! Chuck chesta!';
 		}
