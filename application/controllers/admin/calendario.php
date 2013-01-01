@@ -53,6 +53,9 @@ class Calendario extends MY_Controller {
 			$end = $start;
 		}
 
+		$this->calendario_model->update_status($id_event, array('finicio' => $start, 'ffin' => $end));
+		die();
+
 		$result = $this->calendario_model->update_event($id_event, $start, $end);
 		if($result){
 			$this->log_model->insert_log('calendario', $id_event, 'Ha actualizado las vacaciones solicitadas');
@@ -63,7 +66,12 @@ class Calendario extends MY_Controller {
 
 	public function edit_status(){
 		if ($this->input->post()) {
-			echo 'eeeeeeeeeeeeeepa!';
+
+			$id = $this->uri->segment(4);
+			$status = $this->input->post('status');
+			if ($this->calendario_model->update_status($id, array('satus' => $status))) {
+				# code...
+			}
 		}else{
 			echo 'NOPE! Chuck chesta!';
 		}

@@ -20,6 +20,17 @@ class Calendario_model extends MY_Model {
             return FALSE;
 	}
 
+
+	public function update_status($id, $array){
+		echo $id.'<br/>';
+		foreach ($array as $key => $value) {
+			echo $key . ' => ' . $value;
+			echo '<br/>';
+		}
+		die();
+	}
+
+
 	public function update_event($id, $date_start, $date_end){
 
 		$data = array(
