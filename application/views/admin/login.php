@@ -14,10 +14,6 @@
   <!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
   <link rel="stylesheet" href="assets/css/admin/bootstrap/bootstrap-responsive.css">
 
-  <link rel="shortcut icon" href="assets/images/admin/favicon.png" />
-  <link rel="made" href="http://www.it7.info/" title="Instituto Canario de Telecomunicaciones (IT7)" />
-  <link rel="copyright" href="http://www.it7.info/copyright.php" title="Copyright" />
-
   <style type="text/css">
       body#login{
         margin: 0;
