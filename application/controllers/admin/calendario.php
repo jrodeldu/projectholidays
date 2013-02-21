@@ -53,12 +53,9 @@ class Calendario extends MY_Controller {
 			$end = $start;
 		}
 
-		$this->calendario_model->update_status($id_event, array('finicio' => $start, 'ffin' => $end));
-		die();
-
-		$result = $this->calendario_model->update_event($id_event, $start, $end);
+		$result = $this->calendario_model->update_event($id_event, array('finicio' => $start, 'ffin' => $end));
 		if($result){
-			$this->log_model->insert_log('calendario', $id_event, 'Ha actualizado las vacaciones solicitadas');
+			$this->log_model->insert_log('calendario', $id_event, 'The event has been updated!');
 			return TRUE;
 		}
 	}
@@ -68,12 +65,19 @@ class Calendario extends MY_Controller {
 		if ($this->input->post()) {
 
 			$id = $this->uri->segment(4);
-			$status = $this->input->post('status');
-			if ($this->calendario_model->update_status($id, array('satus' => $status))) {
-				# code...
+			$this->form_validation->set_rules('confirmed', 'Confirmed', 'trim|xss_clean');
+
+			if($this->form_validation->run()){
+
+				$data = $this->input->post();
+				if ($this->calendario_model->update_event($id, $data)) {
+					$this->session->set_flashdata('success', 'The request has been updated!');
+				}else{
+					$this->session->set_flashdata('error', 'Ups! something went wrong!');
+
+				}
+				redirect(site_url('admin/calendario/show/'.$id));
 			}
-		}else{
-			echo 'NOPE! Chuck chesta!';
 		}
 	}
 
@@ -85,7 +89,7 @@ class Calendario extends MY_Controller {
 
         if(count($this->calendario_model->get($id)) == 0){
 
-            $this->session->set_flashdata('error', 'Esta tarea no existe o ha sido borrada');
+            $this->session->set_flashdata('error', 'This event does`t exist or had been deleted!');
             redirect(site_url('admin/calendario'));
 
         }else{
@@ -117,20 +121,17 @@ class Calendario extends MY_Controller {
                     $id = $this->calendario_model->insert_event($datos);
 
                     if($id){
-                    	$this->log_model->insert_log('calendario', $id, 'Ha solicitado unas las vacaciones');
-                    	$this->session->set_flashdata('success', 'Se ha insertado correctamente');
+                    	$this->log_model->insert_log('calendario', $id, 'Has sent a vacation request!');
+                    	$this->session->set_flashdata('success', 'Your vacation request has been registered');
                     }else{
-                    	$this->session->set_flashdata('error', 'No se ha podido insertar');
+                    	$this->session->set_flashdata('error', 'Your vacation request has not been registered');
                     }
 
                     redirect(site_url('admin/calendario'));
             	}
-
-
 		}
 
 		$this->load->view('admin/_includes/template', $data);
-
 	}
 
 }

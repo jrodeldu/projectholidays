@@ -36,12 +36,21 @@ setlocale(LC_ALL,"es_ES@euro","es_ES.utf8","esp");
                         <dt>Information:</dt>
                         <dd><?php echo $result->observaciones; ?></dd>
                         <dt>Current status:</dt>
-                        <dd><?php echo $status = ($result->confirmed == 1) ? 'Confirmed' : 'Not Confirmed'; ?></dd>
+                        <dd><?php
+                                if ($result->confirmed == 0){
+                                    echo 'Pending';
+                                }elseif ($result->confirmed == 1){
+                                    echo 'Confirmed';
+                                }else{
+                                    echo 'Denied';
+                                }
+                        ?></dd>
                     </dl>
 
-                    <label class="control-label"  for="status">Set Status</label>
+                    <label class="control-label"  for="confirmed">Set Status</label>
                     <div class="controls">
-                        <select name="status" id="status">
+                        <select name="confirmed" id="confirmed">
+                            <option value="0">Pending</option>
                             <option value="1">Approve</option>
                             <option value="2">Deny</option>
                         </select>

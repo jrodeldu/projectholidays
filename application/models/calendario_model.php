@@ -21,16 +21,28 @@ class Calendario_model extends MY_Model {
 	}
 
 
-	public function update_status($id, $array){
-		echo $id.'<br/>';
-		foreach ($array as $key => $value) {
-			echo $key . ' => ' . $value;
-			echo '<br/>';
+	public function update_event($id, $array_data){
+		//echo $id.'<br/>';
+		$data = array();
+
+		foreach ($array_data as $key => $value) {
+			$data[$key] = $value;
 		}
-		die();
+
+		// Función update MY_Model.
+		$this->update($id, $data);
+
+		// Comprobamos si hubo fila afectada por el cambio.
+        $return = $this->db->affected_rows() == 1;
+
+        if ($return)
+            return TRUE;
+        else
+            return FALSE;
 	}
 
 
+	/*
 	public function update_event($id, $date_start, $date_end){
 
 		$data = array(
@@ -49,7 +61,7 @@ class Calendario_model extends MY_Model {
         else
             return FALSE;
 
-	}
+	}*/
 
 	public function insert_event($datos){
 

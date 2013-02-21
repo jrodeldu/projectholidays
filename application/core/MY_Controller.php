@@ -185,34 +185,6 @@ class MY_Controller extends CI_Controller{
         }
     }
 
-    // Función universal para la paginación
-    /**
-     * Parámetros:
-     * 1.- $base_url: Página base para el paginado Pej: base_url() . 'cursos/busqueda-completa';
-     * 2.- $total_rows: Número de resultados total a mostar paginados.
-     * 3.- $per_page: Resultados mostrados por página.
-     * 4.- $uri_segment: parte de la url de donde saca el inicio de paginado.Pej: numero 20 -> 'cursos/busqueda-completa/(20)'
-     */
-    protected function _paginacion($base_url, $total_rows, $per_page, $uri_segment){
-    // No implementada por complegidad.
-    /*
-        $config['base_url'] = $base_url;
-        $config['total_rows'] = $total_rows;
-
-        $config['per_page'] = $per_page;
-        $config['uri_segment'] = $uri_segment;
-        $config['first_link'] = 'Primero';
-        $config['last_link'] = 'Último';
-        $config['num_links'] = 3;
-        $config['next_link'] = '&gt; Siguiente';
-        $config['prev_link'] = '&lt; Anterior';
-
-        $this->pagination->initialize($config);
-
-        return $config;
-    */
-    }
-
 }
 
 ?>
