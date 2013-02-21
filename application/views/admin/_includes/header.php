@@ -11,11 +11,7 @@
   <meta http-equiv="imagetoolbar" content="no" />
   <meta http-equiv="X-UA-Compatible" content="IE=8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="IT7">
   <?php if( !empty($meta)) echo $meta; ?>
-  <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/admin/favicon.png" />
-  <link rel="made" href="http://www.it7.info/" title="Instituto Canario de Telecomunicaciones (IT7)" />
-  <link rel="copyright" href="http://www.it7.info/copyright.php" title="Copyright" />
   <!-- ESTILO PARA QUE EL NAV FIJO NO SOLAPE EL BODY-->
   <style type="text/css">
     body {
